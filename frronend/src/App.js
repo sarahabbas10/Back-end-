@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useEffect } from "react";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Login from './component/Login';
 import Patient from './component/Patient';
@@ -7,30 +5,16 @@ import Appointments from "./component/Appointments";
 import './App.css'
 import Doctors from "./component/Doctors";
 import Doctor from "./component/Doctor";
-import AddAppointment from './component/AddApointment'
+import AddAppointment from './component/AddAppointment'
+import DoctorName from "./component/DoctorName";
+import SignUp from "./component/SignUp";
 
 
 
 function App() {
-  useEffect(() => { 
-  // GET request for remote image in node.js
-  axios
-  .get('http://localhost:8080/')
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  }); 
-},[]);
+ 
   return (
   
-
       <BrowserRouter>
     
       <div>
@@ -38,10 +22,16 @@ function App() {
       
           <Route path="/" element={<Login />} />
           <Route path="/patient/:username" element={<Patient />} />
-          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/appointments/:username" element={<Appointments />} />
           <Route path="/addAppointment/:username" element={<AddAppointment />} />
+          <Route path="/addAppointment/doctorName/:username" element={<DoctorName />} />
+          <Route path="//:username" element={<AddAppointment />} />
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/doctors/doctor" element={<Doctor />} />
+
+          <Route path="/patient/signUp" element={<SignUp />} />
+
+       
       </Routes>
       </div>
 
