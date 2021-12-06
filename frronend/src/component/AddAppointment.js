@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import DoctorName from "./DoctorName";
+import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 function AddAppointment(){
-
+  const {username} = useParams()
+  const navigate = useNavigate();
   const [Doctors, setDoctors] = useState([]);
   const [specialty, setSpecialty] = useState(); 
   const [doctor1, setDoctor1] = useState({});  
@@ -22,9 +25,23 @@ function AddAppointment(){
       setSpecialty(e.target.value)
         }
 
-
+        function   book(){
+          navigate("/doctors");
+         
+          <AddAppointment />
+             navigate("/addAppointment/"+username);
+        }
     return(
         <>
+        
+    
+            <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+ 
+    <button onClick={book}>Book Appointemnt</button>
+    <button onClick={()=>{navigate("/appointments/"+username);}}>My Appointemnts</button>
+      <button onClick={()=>{navigate("/doctors");}}>Doctors</button>
+
+</nav>
             <form class="requires-validation" novalidate>
        
         <div class="form-body">

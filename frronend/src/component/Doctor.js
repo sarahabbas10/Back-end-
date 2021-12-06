@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+
 
 function Doctor({doctor}){
 console.log(doctor);
@@ -15,7 +15,7 @@ console.log(doctor);
  <ul>
   {doctor.timeList.map((e)=>{
       if(e.available)
-      return  <li>appointmentTime</li>
+      return  <li>appointmentTime:{e.appointmentTime}</li>
   })}    
 
 </ul> 

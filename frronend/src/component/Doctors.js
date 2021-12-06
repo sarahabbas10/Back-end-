@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Doctor from './Doctor'
-import Navbar from "./Navbar";
+import './Doctor.css'
 function Doctors(){
     console.log("In Doctors");
     const [allAallDoctors ,setAllDoctors] = useState([]);
@@ -18,7 +18,7 @@ function Doctors(){
 
 return(
     <>
-    <Navbar/>
+  
       {allAallDoctors.map((element)=>{
        return(
           <Doctor
